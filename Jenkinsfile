@@ -2,9 +2,15 @@ pipeline {
     agent any
 
     stages {
-        stage('Test') {
+        stage ('changing the file permission') {
             steps {
-                echo '✅ Jenkinsfile is working!'
+                sh 'chmod +x build.sh'
+            }
+        }
+
+        stage ('executing the file') {
+            steps {
+                sh './build.sh'
             }
         }
     }
